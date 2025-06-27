@@ -1,0 +1,14 @@
+Color: 819263 Moss Green
+Color:CFD6AE Tea Green
+
+color1:632C46 violet JTC
+color1:FB9DA8 salmon Pink
+
+color2:5258CB Iris
+color2:D6D6FF Periwinkle
+color2:ECD5D7 misty rose
+
+color3:090C08 Night
+color3:4C455E English violet
+color3:777184 Taupe gray 
+color3:8A95A5 cadet grey
