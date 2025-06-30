@@ -1,0 +1,8 @@
+controlAffinity: ListTileControlAffinity.leading
+This controls where the checkbox appears relative to the text.
+
+ListTileControlAffinity.leading → places the checkbox before (to the left of) the text.
+
+ListTileControlAffinity.trailing → places the checkbox after (to the right of) the text.
+
+ListTileControlAffinity.platform → uses the platform default (leading on Android, trailing on iOS).

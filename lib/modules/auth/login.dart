@@ -6,88 +6,164 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('EcomExpress')),
+      //appBar: AppBar(title: Text('EcomExpress')),
+      backgroundColor: Color(0xFF623CEA),
       body: Login(),
     );
   }
 }
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool rememberMe = false;
   // final color = Color.fromARGB(255, 251, 157, 168);
-  // final color2 = Color.fromARGB(255, 99, 44, 70);
-  // final color3 = Color.fromARGB(255, 251, 169, 157);
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 30),
-            Text(
-              'Login',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 30),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'username',
-                filled: true,
-                fillColor: Colors.white,
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'password',
-                filled: true,
-                fillColor: Colors.white,
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide(color: Colors.grey.shade300),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            Align(
-              alignment: Alignment.centerLeft,
-              CheckboxListTile(title: Text('Rember me'), value: remeberMe),
-            ),
-
-            SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.normal,
-
-                  color: const Color.fromARGB(255, 12, 25, 214),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 25),
-            ElevatedButton(
-              onPressed: () {},
-              child: Center(child: Text('Login')),
-            ),
-            SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: Center(child: Text("Don't have an Account? Sign up ")),
-            ),
-          ],
+    return Column(
+      children: [
+        SizedBox(height: 80),
+        //Logo and Welcome Text
+        const Icon(Icons.ac_unit, size: 60, color: Colors.white),
+        const SizedBox(height: 16),
+        Text(
+          'Login',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
+        SizedBox(height: 4),
+        Text(
+          'Sign in to Continue',
+          style: TextStyle(color: Colors.white, fontSize: 16),
+        ),
+
+        const SizedBox(height: 40),
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+            decoration: BoxDecoration(
+              color: Color(0xFFE9F1F7),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    //Email or username
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'username',
+                        prefixIcon: Icon(Icons.verified_user_outlined),
+                        filled: true,
+                        fillColor: Color(0xFFF6F5F4),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: Colors.grey.shade300),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    //password
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'password',
+                        prefixIcon: Icon(Icons.lock_outline),
+                        suffixIcon: Icon(Icons.visibility_off_outlined),
+                        filled: true,
+                        fillColor: Color(0xFFF6F5F4),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(color: Colors.grey.shade300),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                              value: rememberMe,
+                              onChanged: (value) {
+                                setState(() {
+                                  rememberMe = value ?? false;
+                                });
+                              },
+                            ),
+                            const Text('Remember me'),
+                          ],
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('Forgot Password?'),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 20),
+                    //Login Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF623CEA), //Iris
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Don't have an account? "),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Text(
+                            'Create a new account',
+                            style: TextStyle(
+                              color: Color(0xFF5258CB),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
