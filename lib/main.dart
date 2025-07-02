@@ -1,6 +1,7 @@
 import 'package:ecommerce/modules/auth/login.dart';
 import 'package:ecommerce/modules/auth/register.dart';
-import 'package:ecommerce/modules/home/firstscreen.dart';
+import 'package:ecommerce/modules/home/screens/firstscreen.dart';
+import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,11 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Ecom',
-      theme: ThemeData.light(),
-      //home: const RegisterPage(),
-      //home: const LoginPage(),
-      home: OnBoardingScreen(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.onboarding,
+      getPages: AppPages.routes,
     );
   }
 }
