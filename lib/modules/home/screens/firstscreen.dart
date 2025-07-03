@@ -1,4 +1,7 @@
+import 'package:ecommerce/modules/home/controllers/contollers.dart';
+import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controllers/onboarding_controller.dart';
@@ -8,18 +11,24 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xFFF6F5F4), body: Firstscreen());
+    // inject controller
+    final controller = Get.put(OnboardingController());
+    return Scaffold(
+      backgroundColor: Color(0xFFF6F5F4),
+      body: _OnboardingBody(controller: controller),
+    );
   }
 }
 
-class Firstscreen extends StatefulWidget {
-  const Firstscreen({super.key});
+class _OnboardingBody extends StatefulWidget {
+  const _OnboardingBody({required this.controller});
+  final OnboardingController controller;
 
   @override
-  State<Firstscreen> createState() => _FirstscreenState();
+  State<_OnboardingBody> createState() => _OnboardingBodyState();
 }
 
-class _FirstscreenState extends State<Firstscreen> {
+class _OnboardingBodyState extends State<_OnboardingBody> {
   final PageController _controller = PageController();
   int currentIndex = 0;
 
@@ -157,8 +166,7 @@ class _FirstscreenState extends State<Firstscreen> {
                         curve: Curves.easeInOut,
                       );
                     } else {
-                      // TODO: Navigate to login/home screen
-                      // Navigator.pushReplacement(...);
+                      Get.offAllNamed(AppRoutes.login);
                     }
                   },
                   style: ElevatedButton.styleFrom(

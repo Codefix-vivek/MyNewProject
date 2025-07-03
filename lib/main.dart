@@ -1,6 +1,4 @@
-import 'package:ecommerce/modules/auth/login.dart';
-import 'package:ecommerce/modules/auth/register.dart';
-import 'package:ecommerce/modules/home/screens/firstscreen.dart';
+import 'package:ecommerce/routes/app_pages.dart';
 import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

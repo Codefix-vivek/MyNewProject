@@ -1,4 +1,8 @@
+import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -29,27 +33,39 @@ class _LoginState extends State<Login> {
       children: [
         SizedBox(height: 80),
         //Logo and Welcome Text
-        const Icon(Icons.ac_unit, size: 60, color: Colors.white),
-        const SizedBox(height: 16),
+        Image.asset('assets/images/logo02.png', height: 190),
+        const SizedBox(height: 2),
         Text(
-          'Login',
+          'EcomExpress',
+          style: TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFFF9F6F1),
+          ),
+        ),
+        Text(
+          'Welcome',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontSize: 35,
+            fontWeight: FontWeight.w800,
           ),
         ),
         SizedBox(height: 4),
         Text(
           'Sign in to Continue',
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w300,
+          ),
         ),
 
-        const SizedBox(height: 40),
+        const SizedBox(height: 30),
         Expanded(
           child: Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             decoration: BoxDecoration(
               color: Color(0xFFE9F1F7),
               borderRadius: BorderRadius.only(
@@ -63,6 +79,22 @@ class _LoginState extends State<Login> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Login",
+                        style: GoogleFonts.inter(
+                          textStyle: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 20),
                     //Email or username
                     TextField(
                       decoration: InputDecoration(
@@ -107,12 +139,24 @@ class _LoginState extends State<Login> {
                                 });
                               },
                             ),
-                            const Text('Remember me'),
+                            const Text(
+                              'Remember me',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ],
                         ),
                         TextButton(
                           onPressed: () {},
-                          child: const Text('Forgot Password?'),
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -129,12 +173,14 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.homeScreen);
+                        },
                         child: Text(
                           'Login',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700,
                             color: Colors.white,
                           ),
                         ),
@@ -144,14 +190,24 @@ class _LoginState extends State<Login> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Don't have an account? "),
+                        const Text(
+                          "Don't have an account? ",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            print("going to register page");
+                            Get.toNamed(AppRoutes.register);
+                          },
                           child: const Text(
                             'Create a new account',
                             style: TextStyle(
+                              fontSize: 17,
                               color: Color(0xFF5258CB),
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ),

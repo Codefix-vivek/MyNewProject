@@ -1,25 +1,14 @@
+import 'package:ecommerce/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF623CEA),
-        title: Text(
-          'EcomExpress',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-          ),
-        ),
-      ),
-      backgroundColor: Color(0xFF623CEA),
-      body: Page(),
-    );
+    return Scaffold(backgroundColor: Color(0xFF623CEA), body: Page());
   }
 }
 
@@ -35,24 +24,43 @@ class _PageState extends State<Page> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 80),
-        //Sign Up Now
-        const SizedBox(height: 30),
-        Text(
-          "Sign Up Now",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 35,
-            fontWeight: FontWeight.bold,
+        SizedBox(height: 20),
+        // Top Section: Logo + Headings
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 60.0,
+          ), // Adjust this to move lower
+          child: Column(
+            children: [
+              Image.asset('assets/images/logo02.png', height: 120),
+              const SizedBox(height: 4),
+              const Text(
+                'EcomExpress',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "Sign Up Now",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 5),
+              const Text(
+                "Create Account",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ],
           ),
         ),
-        //Create Account
-        SizedBox(height: 10),
-        Text(
-          "Create Account",
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-        const SizedBox(height: 50),
+
+        const SizedBox(height: 20),
         //conatiner box
         Expanded(
           child: Container(
@@ -183,7 +191,9 @@ class _PageState extends State<Page> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.login);
+                                },
                                 child: const Text(
                                   'Sign In',
                                   style: TextStyle(
