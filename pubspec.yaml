@@ -67,7 +67,7 @@ flutter:
      - assets/animations/onboardScreen3.json
      - assets/images/logo01.png
      - assets/images/logo02.png
-     
+     - assets/images/products/Product01.jpg
      
   #   - images/a_dot_burr.jpeg
 

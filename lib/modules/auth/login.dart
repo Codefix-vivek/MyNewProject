@@ -149,7 +149,9 @@ class _LoginState extends State<Login> {
                           ],
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(AppRoutes.bottomnavbar);
+                          },
                           child: const Text(
                             'Forgot Password?',
                             style: TextStyle(
